@@ -70,20 +70,43 @@ var _LOCK_BUTTON = document.querySelector("#lock-landscape-button"),
 _STATUS.innerHTML=screen.orientation + ' mode';
 document.write(_STATUS.innerHTML);
 try {
-  alert("Welcome guest!");
 // when screen orientation changes
 screen.orientation.addEventListener("change", function() {
 	_STATUS.innerHTML = screen.orientation.type + ' mode';
 if(_STATUS.innerHTML=='landscape-primary mode')
 {
-alert('Turn off auto-rotation to play the game!');
+// if the ok button is clicked, result will be true (boolean)
+var result = confirm( "Please Turn off the Auto-Rotation to play the game");
+
+if ( result ) {
+    // the user clicked ok
+	myCheckFunction();
+} else {
+    // the user clicked cancel or closed the confirm dialog.
+myCheckFunction();
+}
 }
 });
 }
 catch(err) {
   
 }
-
+function myCheckFunction() {
+ if(_STATUS.innerHTML=='landscape-primary mode')
+{
+var result = confirm( "Please Turn off the Auto-Rotation to play the game");
+if ( result ) {
+    // the user clicked ok
+	myCheckFunction();
+} else {
+    // the user clicked cancel or closed the confirm dialog.
+myCheckFunction();
+}	
+}else
+{
+alert('enjoy the game now');
+}
+}
 </script>
 
     <div class="webgl-content">
