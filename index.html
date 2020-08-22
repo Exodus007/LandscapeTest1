@@ -94,16 +94,15 @@ function myCheckFunction() {
 if(_STATUS.innerHTML=='landscape-primary mode')
 {
 var result = confirm( "Please Turn off the Auto-Rotation to play the game");
-if ( result ) 
+if (result) 
 {
     // the user clicked ok
 setInterval(myCheckFunction(),5000);
-	
 } 
 else 
 {
 // the user clicked cancel or closed the confirm dialog.
-myCheckFunction();
+setInterval(myCheckFunction(),5000);
 }	
 }
 else
