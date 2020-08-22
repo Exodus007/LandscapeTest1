@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Platform</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/CoronaGame_Landscape.json", {onProgress: UnityProgress});
+    </script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no">
+<style type="text/css">
+
+
+
+body {
+	
+	background-color: #336699;
+	
+	
+}
+
+#container:fullscreen {
+	
+	background-color: green;
+}
+
+#container:-webkit-full-screen {
+	
+	background-color: green;
+}
+
+
+
+button {
+	background-color: white;
+	border: 1px solid #336699;
+	color: #336699;
+	width: 300px;
+	padding: 10px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: 700;
+	outline: none;
+}
+
+#unlock-button {
+	display: none;
+}
+
+</style>
+  </head>
+  <body>
+
+<div>
+	<p id="orientation-status"></p>
+	<div id="buttons-container">
+		<button id="lock-landscape-button">Lock to Landscape Mode</button>
+		<button id="unlock-button">Unlock</button>
+	</div>
+<script>
+var _LOCK_BUTTON = document.querySelector("#lock-landscape-button"),
+	_UNLOCK_BUTTON = document.querySelector("#unlock-button"),
+	_STATUS = document.querySelector("#orientation-status");
+_STATUS.innerHTML=screen.orientation + ' mode';
+document.write(_STATUS.innerHTML);
+try {
+  alert("Welcome guest!");
+// when screen orientation changes
+screen.orientation.addEventListener("change", function() {
+	_STATUS.innerHTML = screen.orientation.type + ' mode';
+if(_STATUS.innerHTML=='landscape-primary mode')
+{
+alert('Turn off auto-rotation to play the game!');
+}
+});
+}
+catch(err) {
+  
+}
+
+</script>
+
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 480px; height: 800px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">Platform</div>
+      </div>
+    </div>
+
+  </body>
+</html>
