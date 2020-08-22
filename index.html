@@ -77,10 +77,9 @@ if(_STATUS.innerHTML=='landscape-primary mode')
 {
 // if the ok button is clicked, result will be true (boolean)
 var result = confirm( "Please Turn off the Auto-Rotation to play the game");
-
 if ( result ) {
     // the user clicked ok
-	myCheckFunction();
+	setInterval(myCheckFunction(),5000);
 } else {
     // the user clicked cancel or closed the confirm dialog.
 myCheckFunction();
@@ -92,17 +91,22 @@ catch(err) {
   
 }
 function myCheckFunction() {
- if(_STATUS.innerHTML=='landscape-primary mode')
+if(_STATUS.innerHTML=='landscape-primary mode')
 {
 var result = confirm( "Please Turn off the Auto-Rotation to play the game");
-if ( result ) {
+if ( result ) 
+{
     // the user clicked ok
-	myCheckFunction();
-} else {
-    // the user clicked cancel or closed the confirm dialog.
+setInterval(myCheckFunction(),5000);
+	
+} 
+else 
+{
+// the user clicked cancel or closed the confirm dialog.
 myCheckFunction();
 }	
-}else
+}
+else
 {
 alert('enjoy the game now');
 }
